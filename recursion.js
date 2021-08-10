@@ -54,4 +54,10 @@ function collectOddValues(arr){
 
 collectOddValues([1,2,3,4,5])
                                         
-                                           
+//TIPS FOR PURE RECURSION                                           
+
+// for arrays, use methods like slice, the spread operator, and concat to that make copies of arrays so you don't mutate them
+
+//remember that strings are immutable so you will need to use slice, substr or substring to make copies of strings
+
+// to make copies of objects use object.assign or the spread operator

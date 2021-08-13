@@ -14,3 +14,7 @@ binarySearch([2,5,6,9,13,15,28,30], 3)
 
 // 13,15,28,30
 // s        e   
+
+
+// best case is O(1)
+// worst and average is O(log n) as it doubles, the log is only really increasing by 1 so it's very good!

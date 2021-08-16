@@ -1,4 +1,5 @@
-// UNOPTIMIZED VERSION OF BUBBLE SORT
+// Bubble sort is O(n2)
+
 function bubbleSort(arr){
     for(var i = arr.length; i > 0; i--){
       for(var j = 0; j < i - 1; j++){

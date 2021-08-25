@@ -35,3 +35,6 @@ function mergeSort(arr){
 }
 
 mergeSort([10,24, 76,73,72,1,9])
+
+
+// this is O (n log n)

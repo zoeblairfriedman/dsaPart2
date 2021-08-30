@@ -18,6 +18,19 @@
 
 //es6
 
-let myArray = ['a', 'b', 'c', 'd']
-myArray = ["start", ...myArray, "end"]
-console.log(myArray)
+// let myArray = ['a', 'b', 'c', 'd']
+// myArray = ["start", ...myArray, "end"]
+// console.log(myArray)
+
+// how to create a private variable in javascript? 
+
+function secretVariable(){
+  var private = "super secret";
+  return function(){
+    return private;
+  }
+}
+
+var getPrivate = secretVariable()
+
+console.log(secretVariable())

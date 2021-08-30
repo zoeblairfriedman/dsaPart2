@@ -6,8 +6,9 @@ function countingSort(arr) {
   console.log(result);
 }
 
-countingSort([13, 4, 5, 20, 50, 5, 4, 1, 2, 99]);
+// countingSort([13, 4, 5, 20, 50, 5, 4, 1, 2, 99]);
 
 
 // let result = Array.from({length: 100}, () => 0)
-console.log(Array.from("Hello world"))
+// console.log(Array.from("Hello world"))
+console.log(Array.from({length:5}, () => "hello"))

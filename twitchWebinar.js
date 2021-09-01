@@ -9,11 +9,22 @@ function missingWords(s, t){
   let subObject = {}
   for (var i = 0; i < subString.length; i++){
     let word = subString[i]
-    subObject[word] = 1;
+    subObject[word] ? subObject[word] += 1 : subObject[word] = 1;
   }
   
-  // filter out all the words that aren't here into an array
-  console.log(string.filter(word => (!subObject[word])))
+  // iterate through string and check to see if it exists in the lookup object
+      // if it doesn't, add it to the array
+      // if it does, subtract one from the lookup Obj
+  let result = [];
+  for (var j = 0; j < string.length; j++){
+    let word = string[j]
+    if (!subObject[word]){
+      result.push(word)
+    } else {
+      subObject[word] -= 1;
+    }
+  }
+  console.log(result)
 }
 
-missingWords("I like cheese", "like")
+missingWords("I like cheese because cheese likes me", "I like cheese")

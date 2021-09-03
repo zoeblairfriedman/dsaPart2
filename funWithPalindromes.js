@@ -3,6 +3,17 @@ var isPalindrome = function(s) {
   return stringArr.join("") === stringArr.reverse().join("") ? true : false
 };
   
+var isPalindrome = function(s) {
+  let newString = s.replace(/[\W_]+/g, '').toLowerCase()
+  let left = 0
+  let right = newString.length - 1
+  while (left <= right) {
+    if (newString[left] !== newString[right]) return false
+    left++
+    right++
+  }
+  return true
+}
 
 
 // different regex filters: 

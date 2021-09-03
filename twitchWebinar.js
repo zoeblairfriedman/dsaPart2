@@ -1,16 +1,16 @@
 //naive solution
 function missingWords(s, t){
 let string = s.split(" ")
-let subString = t.split(" ")
+let sub = t.split(" ")
 let result = []
-let tOne = 0
+let left = 0
 for (let i = 0; i < string.length; i++){
-  if (string[i] !== subString[tOne]){
+  if (string[i] !== sub[left]){
     result.push(string[i])
-    continue;
   } else {
-    tOne += 1;
+    left += 1;
   }
+  // string[i] !== sub[left] ? result.push(string[i]) : left += 1;
 } 
 console.log(result)
 }

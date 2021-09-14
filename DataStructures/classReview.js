@@ -6,13 +6,15 @@ class Student {
   constructor(firstName, lastName){
     this.firstName = firstName;
     this.lastName = lastName;
-    this.greeting = () => {
-      return `Hi, my name is ${firstName} ${lastName}`
-    }
   }
+  // here is an instance method
+  greeting(){
+    return `Hi! My name is ${this.firstName}!`
+  }
+
 }
 
 let zoe = new Student("Zoe", "Friedman")
 let charlie = new Student("Charlie", "DeChants")
+
 console.log(zoe.greeting())
-console.log(charlie.greeting())

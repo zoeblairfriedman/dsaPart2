@@ -23,9 +23,27 @@ class SinglyLinkedList{
     this.length++;
     return this
   }
+
+  pop(){
+    //if there's nothing, return undefined
+    if (!this.head) return undefined
+    let current = this.head
+    let newTail = current
+    while (current.next){
+      newTail = current;
+      current = current.next;
+    }
+    this.tail = newTail
+    this.tail.next = null
+    this.length--
+    return current
+  }
+  
 }
 
 let list = new SinglyLinkedList()
 list.push("Hello")
 list.push("Goodbye")
-console.log(list)
+list.push("!!!")
+list.pop()
+console.log()

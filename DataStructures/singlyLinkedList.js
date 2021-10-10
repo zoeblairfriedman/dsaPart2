@@ -42,12 +42,29 @@ class SinglyLinkedList{
     }
     return current
   }
-  
+
+  shift(){
+    if (!this.head) return undefined
+    let current = this.head;
+    this.head = current.next;
+    this.length--;
+    return current;
+  }
+
+  //THIS IS UNTESTED
+  unshift(val){
+    let newNode = new Node()
+    if(!this.head) {
+      this.head = newNode
+      this.tail = newNode
+    }
+    newNode.next = this.head
+    this.head = newNode
+    this.length++;
+    return list;
 }
 
 let list = new SinglyLinkedList()
 list.push("Hello")
 list.push("Goodbye")
 list.push("!!!")
-list.pop()
-console.log()

@@ -95,14 +95,30 @@ class DoublyLinkedList {
     }
   }
 
-  set(idx, value){
+  set(idx, value) {
     let node = this.get(idx)
-    if(!!node) {
+    if (!!node) {
       node.val = value
       return true
     } else {
       return false;
     }
+  }
+
+  insert(idx, value) {
+    if (idx < 0 || idx >= this.length) return null;
+    if (idx === 0) this.unshift(value)
+    if (idx === this.length) this.push(value)
+
+    let newNode = new Node(value)
+    let beforeNode = this.get(idx - 1)
+    let afterNode = beforeNode.next
+    newNode.next = afterNode
+    newNode.prev = beforeNode
+    afterNode.prev = newNode
+    beforeNode.next = newNode
+    this.length++
+    return true;
   }
 
 }
@@ -112,6 +128,7 @@ list.push(13)
 list.push(14)
 list.push(15)
 list.push(15)
-console.log(list.set(10,44))
+list.insert(1, 44)
+console.log(list.get(1))
 // console.log(list)
 

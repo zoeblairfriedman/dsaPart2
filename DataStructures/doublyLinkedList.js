@@ -94,6 +94,17 @@ class DoublyLinkedList {
       return current
     }
   }
+
+  set(idx, value){
+    let node = this.get(idx)
+    if(!!node) {
+      node.val = value
+      return true
+    } else {
+      return false;
+    }
+  }
+
 }
 
 let list = new DoublyLinkedList()
@@ -101,6 +112,6 @@ list.push(13)
 list.push(14)
 list.push(15)
 list.push(15)
-console.log(list.get(3))
+console.log(list.set(10,44))
 // console.log(list)
 

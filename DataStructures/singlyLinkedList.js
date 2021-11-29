@@ -98,11 +98,30 @@ class SinglyLinkedList {
   }
 
   remove(index, val) {
-    if (index < 0 || index > this.length) return false;
-    if (index === this.length - 1) return this.pop(value)
+    if (index < 0 || index >= this.length) return false;
+    if (index === this.length - 1) return this.pop(val)
     if (index === 0) return this.shift(value)
 
+    let prev = this.get(index - 1)
+    var removed = prev.next
+    prev.next = removed.next
+    this.length--;
+    return removed;
+  }
 
+  reverse(){
+    let node = this.head
+    this.head = this.tail
+    this.tail = node
+    let prev = null;
+    let next;
+    for (let i = 0; i < this.length; i++){
+      next = node.next;
+      node.next = prev;
+      prev = node;
+      node = next;
+    }
+    return this;
   }
 
 }
@@ -113,3 +132,6 @@ list.push("Goodbye")
 list.push("<3")
 list.push("heart")
 list.push("!!!")
+list.reverse()
+console.log(list.get(0))
+console.log(list.get(4))

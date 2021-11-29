@@ -14,7 +14,7 @@ class DoublyLinkedList {
   }
 
 
-  push(val){
+  push(val) {
     let node = new Node(val)
     if (!this.head) {
       this.head = node
@@ -27,6 +27,37 @@ class DoublyLinkedList {
     this.length++;
     return list;
   }
+
+
+  pop() {
+    if (!this.head) return undefined;
+    let oldTail = this.tail
+    if (this.length === 1) {
+      this.head = null
+      this.tail = null
+    } else {
+      this.tail = oldTail.prev
+      this.tail.next = null
+      oldTail.prev = null
+    }
+    this.length--;
+    return oldTail
+  }
+
+  shift() {
+    if (!this.head) return undefined;
+    let oldHead = this.head
+
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    }
+
+    this.head = oldHead.next
+    oldHead.prev = null;
+    oldHead.next = null;
+  }
+
 }
 
 
@@ -34,5 +65,6 @@ let list = new DoublyLinkedList()
 list.push(13)
 list.push(14)
 list.push(15)
-
+list.shift()
+console.log(list)
 

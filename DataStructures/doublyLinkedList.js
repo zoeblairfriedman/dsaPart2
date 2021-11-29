@@ -74,13 +74,33 @@ class DoublyLinkedList {
     return list
   }
 
+  get(idx) {
+    if (idx < 0 || idx >= this.length) return null;
+    if ((this.length / 2) <= idx) {
+      let count = this.length - 1;
+      let current = this.tail;
+      while (count != idx) {
+        current = current.prev;
+        current--
+      }
+      return current
+    } else {
+      let count = 0;
+      let current = this.head;
+      while (count != idx) {
+        current = current.next;
+        count++
+      }
+      return current
+    }
+  }
 }
-
 
 let list = new DoublyLinkedList()
 list.push(13)
 list.push(14)
 list.push(15)
-console.log(list.unshift(12))
+list.push(15)
+console.log(list.get(3))
 // console.log(list)
 

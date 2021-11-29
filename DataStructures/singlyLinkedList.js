@@ -25,7 +25,6 @@ class SinglyLinkedList {
   }
 
   pop() {
-    //if there's nothing, return undefined
     if (!this.head) return undefined
     let current = this.head
     let newTail = current
@@ -51,7 +50,6 @@ class SinglyLinkedList {
     return current;
   }
 
-  //THIS IS UNTESTED
   unshift(val) {
     var newNode = new Node(val);
     if (!this.head) {
@@ -76,6 +74,37 @@ class SinglyLinkedList {
     return current
   }
 
+  set(index, value) {
+    let node = this.get(index)
+    if (node) {
+      node.val = value
+      return true
+    }
+    return false;
+  }
+
+  insert(index, val) {
+    if (index < 0 || index > this.length) return false;
+    if (index === this.length) return !!this.push(value)
+    if (index === 0) return !!this.unshift(value)
+
+    let newNode = new Node(val)
+    let prev = this.get(index - 1)
+    let temp = prev.next // save original "next"
+    prev.next = newNode
+    newNode.next = temp // connecting the new node with the original "next"
+    this.length++;
+    return true;
+  }
+
+  remove(index, val) {
+    if (index < 0 || index > this.length) return false;
+    if (index === this.length - 1) return this.pop(value)
+    if (index === 0) return this.shift(value)
+
+
+  }
+
 }
 
 let list = new SinglyLinkedList()
@@ -84,4 +113,3 @@ list.push("Goodbye")
 list.push("<3")
 list.push("heart")
 list.push("!!!")
-console.log(list.get(7))

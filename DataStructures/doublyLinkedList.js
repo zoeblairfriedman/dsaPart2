@@ -121,14 +121,28 @@ class DoublyLinkedList {
     return true;
   }
 
+  remove(idx) {
+    if (idx < 0 || idx >= this.length) return null;
+    if (idx === 0) this.shift()
+    if (idx === this.length - 1) this.pop()
+    let nodeToRemove = this.get(idx)
+    nodeToRemove.prev.next = nodeToRemove.next
+    nodeToRemove.next.prev = nodeToRemove.prev
+    nodeToRemove.prev = null;
+    nodeToRemove.next = null;
+    this.length--;
+    return nodeToRemove
+  }
+
 }
 
 let list = new DoublyLinkedList()
 list.push(13)
 list.push(14)
 list.push(15)
-list.push(15)
-list.insert(1, 44)
-console.log(list.get(1))
+list.push(16)
+console.log(list.remove(1))
+console.log(list)
+
 // console.log(list)
 
